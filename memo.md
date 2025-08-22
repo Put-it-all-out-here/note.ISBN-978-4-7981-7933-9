@@ -43,6 +43,17 @@
                 - 53306:3306          
           ```
 ## p47
+- Docker Desktopインストール後、Docker Desktop起動して、
+  右下角にUpdateの表示あれば、クリックし、Updateする。
+  
+- <img width="1587" height="900" alt="image" src="https://github.com/user-attachments/assets/7dc772ea-200a-4013-9088-c7d7ff3fe5b3" />
+- <img width="1587" height="900" alt="image" src="https://github.com/user-attachments/assets/471d5e90-6eec-4dd4-8243-1b76bbfb96fa" />
+
 - dockerコマンドが見つからない。
-- `docker compose up -d` は失敗する。
+- `docker compose up -d` は失敗する。  
   環境変数PATHにdockerのbinを登録する下りがこの本にはない。
+  環境変数の登録をしないパターンの進め方:
+    ```
+    cd C:\Program Files\Docker\Docker\resources\bin
+    docker compose -f "C:\dev\docker.compose.yml" up -d
+    ```

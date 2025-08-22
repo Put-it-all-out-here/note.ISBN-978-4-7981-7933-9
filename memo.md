@@ -69,12 +69,12 @@
         "currentContext": "desktop-linux"
       }
       ```
-    - 5:`config.json`に`docker-credential-desktop`を呼び出す記載があるが、
-      `docker-credential-desktop`を呼び出せないことによるエラー。
-      調査によると、`docker-credential-desktop`を呼び出すために動く機能'exec.LookPath'がGoで書かれており、
-      Go 1.19 以降はセキュリティ強化のため、
-      相対パスやカレント由来で見つかった実行ファイルは暗黙に実行しないよう変更されたらしい。
-      （そのとき典型的に出るのが “cannot run executable found relative to current directory” の類のエラー）。  
+    - 5:[2]のエラーは、`config.json`に`docker-credential-desktop`を呼び出す記載があるが、  
+      `docker-credential-desktop`を呼び出せないことによるもの。  
+      調査によると、`docker-credential-desktop`を呼び出すために動く機能'exec.LookPath'がGoで書かれており、  
+      Go 1.19 以降はセキュリティ強化のため、  
+      相対パスやカレント由来で見つかった実行ファイルは暗黙に実行しないよう変更されたらしい。  
+      そのとき典型的に出るのが “cannot run executable found relative to current directory” の類のエラー。    
     - 6:`docker-credential-desktop`について調査した結果、`docker-credential-desktop`は呼び出し不要と判断した。
       - 理由
         - `docker-credential-desktop`の役割はDockerHubへのログイン上のセキュリティ向上。
@@ -97,5 +97,3 @@
       docker compose -f "C:\dev\docker.compose.yml" up -d
       ```
     - 9:無事、エラーなくコンテナ起動できた。
-
-      が
